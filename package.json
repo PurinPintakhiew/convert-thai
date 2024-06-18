@@ -1,12 +1,12 @@
 {
   "name": "convert-thai",
-  "version": "1.0.1",
-  "description": "Convert values ​​to Thai format",
+  "version": "1.0.3",
+  "description": "A package to convert dates and numbers to Thai format",
   "scripts": {
     "build": "tsc"
   },
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "files": [
     "dist"
   ],
@@ -15,7 +15,13 @@
     "url": "git+https://github.com/PurinPintakhiew/convert-thai.git"
   },
   "keywords": [
-    "thai"
+    "thai",
+    "convert",
+    "convert-thai",
+    "date",
+    "thai-date",
+    "number",
+    "thai-number"
   ],
   "author": "Purin Pintakhiew",
   "license": "ISC",

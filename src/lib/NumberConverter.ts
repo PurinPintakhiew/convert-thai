@@ -13,7 +13,7 @@ const numberThConstants: any = {
 
 const numberFormat = (number: number): string => {
   try {
-    if (!number) {
+    if (number === null || typeof number === "undefined" || isNaN(number)) {
       return "";
     }
 
