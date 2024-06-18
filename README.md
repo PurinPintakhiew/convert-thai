@@ -4,4 +4,3 @@
 ```
 npm i convert-thai
 ```
-
