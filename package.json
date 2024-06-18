@@ -1,0 +1,22 @@
+{
+  "name": "convert-thai",
+  "version": "1.0.0",
+  "description": "Convert values ​​to Thai format",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PurinPintakhiew/convert-thai.git"
+  },
+  "keywords": [
+    "thai"
+  ],
+  "author": "Purin Pintakhiew",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PurinPintakhiew/convert-thai/issues"
+  },
+  "homepage": "https://github.com/PurinPintakhiew/convert-thai#readme"
+}
