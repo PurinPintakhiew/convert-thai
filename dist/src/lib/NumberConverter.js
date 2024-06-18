@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.numberFormat = void 0;
 const numberThConstants = {
     0: "๐",
     1: "๑",
@@ -32,4 +33,4 @@ const numberFormat = (number) => {
         return "";
     }
 };
-exports.default = numberFormat;
+exports.numberFormat = numberFormat;

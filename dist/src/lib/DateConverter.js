@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.dateFormat = void 0;
 const NumberConverter_1 = require("./NumberConverter");
 const dateThConstants = {
     fulls: [
@@ -49,16 +50,16 @@ const dateFormat = (date, format = "dd/mm/yy", type = "number" || "short" || "fu
             defaultDate.year = defaultDate.year + 543;
         }
         let dateTh = {
-            date: (0, NumberConverter_1.default)(defaultDate.date),
+            date: (0, NumberConverter_1.numberFormat)(defaultDate.date),
             month: defaultDate.month,
-            year: (0, NumberConverter_1.default)(defaultDate.year),
-            hour: (0, NumberConverter_1.default)(defaultDate.hour),
-            minute: (0, NumberConverter_1.default)(defaultDate.minute),
-            second: (0, NumberConverter_1.default)(defaultDate.second),
+            year: (0, NumberConverter_1.numberFormat)(defaultDate.year),
+            hour: (0, NumberConverter_1.numberFormat)(defaultDate.hour),
+            minute: (0, NumberConverter_1.numberFormat)(defaultDate.minute),
+            second: (0, NumberConverter_1.numberFormat)(defaultDate.second),
         };
         switch (type) {
             case "number":
-                dateTh.month = (0, NumberConverter_1.default)(defaultDate.month + 1);
+                dateTh.month = (0, NumberConverter_1.numberFormat)(defaultDate.month + 1);
                 break;
             case "full":
                 dateTh.month = dateThConstants.fulls[defaultDate.month];
@@ -77,6 +78,7 @@ const dateFormat = (date, format = "dd/mm/yy", type = "number" || "short" || "fu
         return "";
     }
 };
+exports.dateFormat = dateFormat;
 const dateSort = (dateTh, format) => {
     try {
         const formatDate = {
@@ -94,4 +96,3 @@ const dateSort = (dateTh, format) => {
         return "";
     }
 };
-exports.default = dateFormat;

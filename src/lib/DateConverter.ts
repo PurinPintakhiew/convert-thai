@@ -1,4 +1,4 @@
-import numberFormat from "./NumberConverter";
+import { numberFormat } from "./NumberConverter";
 
 interface DateThConstants {
   fulls: string[];
@@ -115,4 +115,4 @@ const dateSort = (dateTh: any, format: string): string => {
   }
 };
 
-export default dateFormat;
+export { dateFormat };
