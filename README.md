@@ -1,39 +1,44 @@
 # convert-thai
 
-## usage
+## Install (ติดตั้ง)
 ```npm
 npm i convert-thai
 ```
-### Convert date and number data into Thai
+## Usage (วิธีการใช้งาน)
 
 #### Typescript
 ```typescript
-import { convertThai } from "convert-thai";
+import { dateFormat, numberFormat } from "convert-thai";
 
 // --- dateFormat
-convertThai.dateFormat(new Date()); // ๑๙/๖/๒๕๖๗
-convertThai.dateFormat(new Date(), "dd/mm/yy"); // ๑๙/๖/๒๕๖๗
-convertThai.dateFormat(new Date(), "dd/mm/yy h:m:s"); // ๑๙/๖/๒๕๖๗ ๑๒:๐:๓๕
-convertThai.dateFormat(new Date(), "dd mm yy"); // ๑๙ ๖ ๒๕๖๗
-convertThai.dateFormat(new Date(), "dd mm yy", "short"); // ๑๙ มิ.ย. ๒๕๖๗
-convertThai.dateFormat(new Date(), "dd mm yy", "full"); // ๑๙ มิถุนายน ๒๕๖๗
+dateFormat(new Date()); // ๑๙/๐๖/๒๕๖๗
+dateFormat(new Date(), "dd/mm/yy"); // ๑๙/๐๖/๒๕๖๗
+dateFormat(new Date(), "dd/mm/yy h:m:s"); // ๑๙/๐๖/๒๕๖๗ ๑๒:๐๐:๓๕
+dateFormat(new Date(), "dd mm yy"); // ๑๙ ๐๖ ๒๕๖๗
+dateFormat(new Date(), "dd mm yy", "short"); // ๑๙ มิ.ย. ๒๕๖๗
+dateFormat(new Date(), "dd mm yy", "full"); // ๑๙ มิถุนายน ๒๕๖๗
 
 // --- numberFormat
-convertThai.numberFormat(123456789); // ๑๒๓๔๕๖๗๘๙
+numberFormat(123456789); // ๑๒๓๔๕๖๗๘๙
+numberFormat(1234.56789, 2); // ๑๒๓๔.๕๖
+numberFormat(123456789, 0, ','); // ๑๒๓,๔๕๖,๗๘๙
 ```
 
-#### javascript
+#### Javascript
 ```javascript
-const { convertThai } = require('convert-thai');
+const { dateFormat, numberFormat } = require('convert-thai');
 
 // --- dateFormat
-convertThai.dateFormat(new Date()); // ๑๙/๖/๒๕๖๗
-convertThai.dateFormat(new Date(), "dd/mm/yy"); // ๑๙/๖/๒๕๖๗
-convertThai.dateFormat(new Date(), "dd/mm/yy h:m:s"); // ๑๙/๖/๒๕๖๗ ๑๒:๐:๓๕
-convertThai.dateFormat(new Date(), "dd mm yy"); // ๑๙ ๖ ๒๕๖๗
-convertThai.dateFormat(new Date(), "dd mm yy", "short"); // ๑๙ มิ.ย. ๒๕๖๗
-convertThai.dateFormat(new Date(), "dd mm yy", "full"); // ๑๙ มิถุนายน ๒๕๖๗
+dateFormat(new Date()); // ๑๙/๐๖/๒๕๖๗
+dateFormat(new Date(), "dd/mm/yy"); // ๑๙/๐๖/๒๕๖๗
+dateFormat(new Date(), "dd/mm/yy h:m:s"); // ๑๙/๐๖/๒๕๖๗ ๑๒:๐๐:๓๕
+dateFormat(new Date(), "dd mm yy"); // ๑๙ ๐๖ ๒๕๖๗
+dateFormat(new Date(), "dd mm yy", "short"); // ๑๙ มิ.ย. ๒๕๖๗
+dateFormat(new Date(), "dd mm yy", "full"); // ๑๙ มิถุนายน ๒๕๖๗
 
 // --- numberFormat
-convertThai.numberFormat(123456789); // ๑๒๓๔๕๖๗๘๙
+numberFormat(123456789); // ๑๒๓๔๕๖๗๘๙
+numberFormat(1234.56789, 2); // ๑๒๓๔.๕๖
+numberFormat(123456789, 0, ','); // ๑๒๓,๔๕๖,๗๘๙
 ```
+## Description (คำอธิบาย)
