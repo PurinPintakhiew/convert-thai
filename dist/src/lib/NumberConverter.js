@@ -14,28 +14,30 @@ const numberThConstants = {
     9: "๙",
     ".": ".",
     ",": ",",
+    "-": "-",
 };
 const numberFormat = (number, decimals, thousandsSeparator) => {
-    var _a, _b;
+    var _a, _b, _c;
     try {
         if (number === null || typeof number === "undefined" || isNaN(number)) {
             return "";
         }
-        let num = number || 0;
-        if (decimals || decimals === 0) {
-            num = Number(number === null || number === void 0 ? void 0 : number.toFixed(decimals));
-        }
+        let num = Number(number);
         let numberStr = String(num);
-        if (thousandsSeparator) {
+        if (decimals || decimals === 0) {
+            const decimal = Math.floor(Math.abs(decimals));
+            numberStr = (_a = ((num * 100) / 100)) === null || _a === void 0 ? void 0 : _a.toFixed(decimal);
+        }
+        if (thousandsSeparator === ",") {
             const [integerPart, decimalPart] = numberStr === null || numberStr === void 0 ? void 0 : numberStr.split(".");
             numberStr = integerPart === null || integerPart === void 0 ? void 0 : integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, thousandsSeparator);
             if (decimalPart) {
                 numberStr = `${numberStr}.${decimalPart}`;
             }
         }
-        const numberArr = ((_a = numberStr === null || numberStr === void 0 ? void 0 : numberStr.split("")) === null || _a === void 0 ? void 0 : _a.map((n) => (n === "." || n === "," ? n : Number(n)))) || [];
+        const numberArr = ((_b = numberStr === null || numberStr === void 0 ? void 0 : numberStr.split("")) === null || _b === void 0 ? void 0 : _b.map((n) => n === "." || n === "," || n === "-" ? n : Number(n))) || [];
         if (numberArr.length > 0) {
-            const numberThai = ((_b = numberArr === null || numberArr === void 0 ? void 0 : numberArr.map((num) => numberThConstants[num])) === null || _b === void 0 ? void 0 : _b.join("")) || "";
+            const numberThai = ((_c = numberArr === null || numberArr === void 0 ? void 0 : numberArr.map((num) => numberThConstants[num])) === null || _c === void 0 ? void 0 : _c.join("")) || "";
             return numberThai;
         }
         else {
