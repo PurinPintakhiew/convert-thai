@@ -48,9 +48,9 @@ numberFormat(123456789, 0, ','); // ๑๒๓,๔๕๖,๗๘๙
     <div>dateFormat(date, format, type, era)</div>
     <ul>
       <li>date (ค่าวันที่) - new Date(), "2024-6-19"</li>
-      <li>format (รูปแบบวันที่) -  "dd/mm/yy",  "yy/mm/dd", "yy/mm/dd", "dd-mm-yy", "dd mm yy", "yy mm dd, "dd/mm/yy h:m:s", "yy/mm/dd h:m:s", "h:m:s" . (default - "dd/mm/yy")</li>
-      <li>type (ประเภท) - "number" (ตัวเลข), "short" (เดือนตัวย่อ), "full" (เดือนตัวเต็ม) . (default - "number")</li>
-      <li>era (ศักราช) - "be" (พุทธศักราช), "ad" (คริสต์ศักราช) . (default - "be")</li>
+      <li>format (รูปแบบวันที่) -  "dd/mm/yy",  "yy/mm/dd", "yy/mm/dd", "dd-mm-yy", "dd mm yy", "yy mm dd, "dd/mm/yy h:m:s", "yy/mm/dd h:m:s", "h:m:s" (default - "dd/mm/yy")</li>
+      <li>type (ประเภท) - "number" (ตัวเลข), "short" (เดือนตัวย่อ), "full" (เดือนตัวเต็ม) (default - "number")</li>
+      <li>era (ศักราช) - "be" (พุทธศักราช), "ad" (คริสต์ศักราช) (default - "be")</li>
     </ul>
   </li>
   <li>
