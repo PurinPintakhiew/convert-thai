@@ -50,16 +50,16 @@ const dateFormat = (date, format = "dd/mm/yy", type = "number" || "short" || "fu
             defaultDate.year = defaultDate.year + 543;
         }
         let dateTh = {
-            date: (0, NumberConverter_1.numberFormat)(defaultDate.date),
+            date: addZero((0, NumberConverter_1.numberFormat)(defaultDate.date)),
             month: defaultDate.month,
-            year: (0, NumberConverter_1.numberFormat)(defaultDate.year),
-            hour: (0, NumberConverter_1.numberFormat)(defaultDate.hour),
-            minute: (0, NumberConverter_1.numberFormat)(defaultDate.minute),
-            second: (0, NumberConverter_1.numberFormat)(defaultDate.second),
+            year: addZero((0, NumberConverter_1.numberFormat)(defaultDate.year)),
+            hour: addZero((0, NumberConverter_1.numberFormat)(defaultDate.hour)),
+            minute: addZero((0, NumberConverter_1.numberFormat)(defaultDate.minute)),
+            second: addZero((0, NumberConverter_1.numberFormat)(defaultDate.second)),
         };
         switch (type) {
             case "number":
-                dateTh.month = (0, NumberConverter_1.numberFormat)(defaultDate.month + 1);
+                dateTh.month = addZero((0, NumberConverter_1.numberFormat)(defaultDate.month + 1));
                 break;
             case "full":
                 dateTh.month = dateThConstants.fulls[defaultDate.month];
@@ -90,6 +90,21 @@ const dateSort = (dateTh, format) => {
             s: dateTh.second,
         };
         return format.replace(/dd|mm|yy|h|m|s/g, (match) => formatDate[match] || "");
+    }
+    catch (error) {
+        console.error(error);
+        return "";
+    }
+};
+const addZero = (numberStr) => {
+    try {
+        if (!numberStr) {
+            return "";
+        }
+        if ((numberStr === null || numberStr === void 0 ? void 0 : numberStr.length) == 1) {
+            return `๐${numberStr}`;
+        }
+        return numberStr;
     }
     catch (error) {
         console.error(error);

@@ -12,17 +12,31 @@ const numberThConstants = {
     7: "๗",
     8: "๘",
     9: "๙",
+    ".": ".",
+    ",": ",",
 };
-const numberFormat = (number) => {
-    var _a, _b, _c;
+const numberFormat = (number, decimals, thousandsSeparator) => {
+    var _a, _b;
     try {
         if (number === null || typeof number === "undefined" || isNaN(number)) {
             return "";
         }
-        const numberArr = ((_b = (_a = String(number)) === null || _a === void 0 ? void 0 : _a.split("")) === null || _b === void 0 ? void 0 : _b.map(Number)) || [];
+        let num = number || 0;
+        if (decimals || decimals === 0) {
+            num = Number(number === null || number === void 0 ? void 0 : number.toFixed(decimals));
+        }
+        let numberStr = String(num);
+        if (thousandsSeparator) {
+            const [integerPart, decimalPart] = numberStr === null || numberStr === void 0 ? void 0 : numberStr.split(".");
+            numberStr = integerPart === null || integerPart === void 0 ? void 0 : integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, thousandsSeparator);
+            if (decimalPart) {
+                numberStr = `${numberStr}.${decimalPart}`;
+            }
+        }
+        const numberArr = ((_a = numberStr === null || numberStr === void 0 ? void 0 : numberStr.split("")) === null || _a === void 0 ? void 0 : _a.map((n) => (n === "." || n === "," ? n : Number(n)))) || [];
         if (numberArr.length > 0) {
-            const numberStr = ((_c = numberArr === null || numberArr === void 0 ? void 0 : numberArr.map((num) => numberThConstants[num])) === null || _c === void 0 ? void 0 : _c.join("")) || "";
-            return numberStr;
+            const numberThai = ((_b = numberArr === null || numberArr === void 0 ? void 0 : numberArr.map((num) => numberThConstants[num])) === null || _b === void 0 ? void 0 : _b.join("")) || "";
+            return numberThai;
         }
         else {
             return "";
