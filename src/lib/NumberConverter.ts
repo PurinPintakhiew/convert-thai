@@ -9,21 +9,51 @@ const numberThConstants: any = {
   7: "๗",
   8: "๘",
   9: "๙",
+  ".": ".",
+  ",": ",",
 };
 
-const numberFormat = (number: number): string => {
+const numberFormat = (
+  number: number,
+  decimals?: number,
+  thousandsSeparator?: string
+): string => {
   try {
     if (number === null || typeof number === "undefined" || isNaN(number)) {
       return "";
     }
 
-    const numberArr: number[] = String(number)?.split("")?.map(Number) || [];
+    let num: number = number || 0;
+
+    if (decimals || decimals === 0) {
+      num = Number(number?.toFixed(decimals));
+    }
+
+    let numberStr: string = String(num);
+
+    if (thousandsSeparator) {
+      const [integerPart, decimalPart] = numberStr?.split(".");
+
+      numberStr = integerPart?.replace(
+        /\B(?=(\d{3})+(?!\d))/g,
+        thousandsSeparator
+      );
+
+      if (decimalPart) {
+        numberStr = `${numberStr}.${decimalPart}`;
+      }
+    }
+
+    const numberArr: any[] =
+      numberStr
+        ?.split("")
+        ?.map((n: any) => (n === "." || n === "," ? n : Number(n))) || [];
 
     if (numberArr.length > 0) {
-      const numberStr: string =
-        numberArr?.map((num: number) => numberThConstants[num])?.join("") || "";
+      const numberThai: string =
+        numberArr?.map((num: any) => numberThConstants[num])?.join("") || "";
 
-      return numberStr;
+      return numberThai;
     } else {
       return "";
     }
