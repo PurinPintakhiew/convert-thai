@@ -63,17 +63,17 @@ const dateFormat = (
     }
 
     let dateTh: any = {
-      date: numberFormat(defaultDate.date),
+      date: addZero(numberFormat(defaultDate.date)),
       month: defaultDate.month,
-      year: numberFormat(defaultDate.year),
-      hour: numberFormat(defaultDate.hour),
-      minute: numberFormat(defaultDate.minute),
-      second: numberFormat(defaultDate.second),
+      year: addZero(numberFormat(defaultDate.year)),
+      hour: addZero(numberFormat(defaultDate.hour)),
+      minute: addZero(numberFormat(defaultDate.minute)),
+      second: addZero(numberFormat(defaultDate.second)),
     };
 
     switch (type) {
       case "number":
-        dateTh.month = numberFormat(defaultDate.month + 1);
+        dateTh.month = addZero(numberFormat(defaultDate.month + 1));
         break;
       case "full":
         dateTh.month = dateThConstants.fulls[defaultDate.month];
@@ -109,6 +109,23 @@ const dateSort = (dateTh: any, format: string): string => {
       /dd|mm|yy|h|m|s/g,
       (match: any) => formatDate[match] || ""
     );
+  } catch (error) {
+    console.error(error);
+    return "";
+  }
+};
+
+const addZero = (numberStr: string): string => {
+  try {
+    if (!numberStr) {
+      return "";
+    }
+
+    if (numberStr?.length == 1) {
+      return `๐${numberStr}`;
+    }
+
+    return numberStr;
   } catch (error) {
     console.error(error);
     return "";
