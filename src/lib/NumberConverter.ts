@@ -11,6 +11,7 @@ const numberThConstants: any = {
   9: "๙",
   ".": ".",
   ",": ",",
+  "-": "-",
 };
 
 const numberFormat = (
@@ -23,15 +24,15 @@ const numberFormat = (
       return "";
     }
 
-    let num: number = number || 0;
-
-    if (decimals || decimals === 0) {
-      num = Number(number?.toFixed(decimals));
-    }
-
+    let num: number = Number(number);
     let numberStr: string = String(num);
 
-    if (thousandsSeparator) {
+    if (decimals || decimals === 0) {
+      const decimal: number = Math.floor(Math.abs(decimals));
+      numberStr = ((num * 100) / 100)?.toFixed(decimal);
+    }
+
+    if (thousandsSeparator === ",") {
       const [integerPart, decimalPart] = numberStr?.split(".");
 
       numberStr = integerPart?.replace(
@@ -47,7 +48,9 @@ const numberFormat = (
     const numberArr: any[] =
       numberStr
         ?.split("")
-        ?.map((n: any) => (n === "." || n === "," ? n : Number(n))) || [];
+        ?.map((n: any) =>
+          n === "." || n === "," || n === "-" ? n : Number(n)
+        ) || [];
 
     if (numberArr.length > 0) {
       const numberThai: string =
