@@ -21,7 +21,11 @@
     "date",
     "thai-date",
     "number",
-    "thai-number"
+    "thai-number",
+    "ไทย",
+    "ตัวเลข",
+    "วันที่",
+    "เวลา"
   ],
   "author": "Purin Pintakhiew",
   "license": "ISC",
