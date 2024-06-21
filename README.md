@@ -56,9 +56,23 @@ numberFormat(-1234, 2, ','); // -๑,๒๓๔.๐๐
 
  * `dateFormat(date, format, type, era)`
     * `date` (ค่าวันที่) - [จำเป็น] - new Date(), "2024-6-19"
-    * `format` (รูปแบบวันที่) - [ไม่บังคับ] - "dd/mm/yy",  "yy/mm/dd", "yy/mm/dd", "dd-mm-yy", "dd mm yy", "yy mm dd, "dd/mm/yy h:m:s", "yy/mm/dd h:m:s", "h:m:s" (default - "dd/mm/yy")
-    * `type` (ประเภท) - [ไม่บังคับ] - "number" (ตัวเลข), "short" (เดือนตัวย่อ), "full" (เดือนตัวเต็ม) (default - "number")
-    * `era` (ศักราช) - [ไม่บังคับ] - "be" (พุทธศักราช), "ad" (คริสต์ศักราช) (default - "be")
+    * `format` (รูปแบบวันที่) - [ไม่บังคับ] - (default - "dd/mm/yy")
+      *  "dd/mm/yy" ๑๙/๐๖/๒๕๖๗
+      *  "yy/mm/dd" ๒๕๖๗/๐๖/๑๙
+      *  "dd-mm-yy" ๑๙-๐๖-๒๕๖๗
+      *  "yy-mm-dd" ๒๕๖๗-๐๖-๑๙
+      *  "dd mm yy" ๑๙ ๐๖ ๒๕๖๗
+      *  "yy mm dd" ๒๕๖๗ ๐๖ ๑๙
+      *  "dd/mm/yy h:m:s" ๑๙/๐๖/๒๕๖๗ ๑๒:๐๐:๓๕
+      *  "yy/mm/dd h:m:s" ๒๕๖๗/๐๖/๑๙ ๑๒:๐๐:๓๕
+      *  "h:m:s" ๑๒:๐๐:๓๕
+    * `type` (ประเภท) - [ไม่บังคับ] - (default - "number")
+      * "number" (ตัวเลข)  ๑๙ ๐๖ ๒๕๖๗
+      * "short" (เดือนตัวย่อ) ๑๙ มิ.ย. ๒๕๖๗
+      * "full" (เดือนตัวเต็ม) ๑๙ มิถุนายน ๒๕๖๗
+    * `era` (ศักราช) - [ไม่บังคับ] - (default - "be")
+      * "be" (พุทธศักราช)
+      * "ad" (คริสต์ศักราช)
     
 * `numberFormat(number, decimals, thousandsSeparator)`
    * `number` (ค่าตัวเลข) - [จำเป็น] - 1000, 1000.50, -1000 เป็นต้น
