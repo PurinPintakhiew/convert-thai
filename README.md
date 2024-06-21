@@ -55,7 +55,9 @@ numberFormat(-1234, 2, ','); // -๑,๒๓๔.๐๐
 ## Description (คำอธิบาย)
 
  * `dateFormat(date, format, type, era)`
-    * `date` (ค่าวันที่) - [จำเป็น] - new Date(), "2024-6-19"
+    * `date` (ค่าวันที่) - [จำเป็น]
+      * new Date()
+      * "2024-6-19"
     * `format` (รูปแบบวันที่) - [ไม่บังคับ] - (default - "dd/mm/yy")
       *  "dd/mm/yy" ๑๙/๐๖/๒๕๖๗
       *  "yy/mm/dd" ๒๕๖๗/๐๖/๑๙
