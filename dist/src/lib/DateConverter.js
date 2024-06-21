@@ -31,14 +31,25 @@ const dateThConstants = {
         "พ.ย.",
         "ธ.ค.",
     ],
+    fullDays: [
+        "อาทิตย์",
+        "จันทร์",
+        "อังคาร",
+        "พุธ",
+        "พฤหัสบดี",
+        "ศุกร์",
+        "เสาร์",
+    ],
+    shortDays: ["อา", "จ", "อ", "พ", "พฤ", "ศ", "ส"],
 };
-const dateFormat = (date, format = "dd/mm/yy", type = "number" || "short" || "full", era = "be" || "ad") => {
+const dateFormat = (date, format = "dd/mm/yyyy", era = "be" || "ad") => {
     try {
-        if (!date || !format || !type || !era) {
+        if (!date || !format) {
             return "";
         }
         const newDate = new Date(date);
         const defaultDate = {
+            day: newDate.getDay(),
             date: newDate.getDate(),
             month: newDate.getMonth(),
             year: newDate.getFullYear(),
@@ -49,28 +60,13 @@ const dateFormat = (date, format = "dd/mm/yy", type = "number" || "short" || "fu
         if (era === "be") {
             defaultDate.year = defaultDate.year + 543;
         }
-        let dateTh = {
-            date: addZero((0, NumberConverter_1.numberFormat)(defaultDate.date)),
-            month: defaultDate.month,
-            year: addZero((0, NumberConverter_1.numberFormat)(defaultDate.year)),
-            hour: addZero((0, NumberConverter_1.numberFormat)(defaultDate.hour)),
-            minute: addZero((0, NumberConverter_1.numberFormat)(defaultDate.minute)),
-            second: addZero((0, NumberConverter_1.numberFormat)(defaultDate.second)),
-        };
-        switch (type) {
-            case "number":
-                dateTh.month = addZero((0, NumberConverter_1.numberFormat)(defaultDate.month + 1));
-                break;
-            case "full":
-                dateTh.month = dateThConstants.fulls[defaultDate.month];
-                break;
-            case "short":
-                dateTh.month = dateThConstants.shorts[defaultDate.month];
-                break;
-            default:
-                break;
+        else if (era === "ad") {
+            defaultDate.year = newDate.getFullYear();
         }
-        const result = dateSort(dateTh, format);
+        else {
+            defaultDate.year = defaultDate.year + 543;
+        }
+        const result = dateSort(defaultDate, format);
         return result;
     }
     catch (error) {
@@ -79,17 +75,27 @@ const dateFormat = (date, format = "dd/mm/yy", type = "number" || "short" || "fu
     }
 };
 exports.dateFormat = dateFormat;
-const dateSort = (dateTh, format) => {
+const dateSort = (defaultDate, format) => {
     try {
         const formatDate = {
-            dd: dateTh.date,
-            mm: dateTh.month,
-            yy: dateTh.year,
-            h: dateTh.hour,
-            m: dateTh.minute,
-            s: dateTh.second,
+            dddd: dateThConstants.fullDays[defaultDate.day],
+            ddd: dateThConstants.shortDays[defaultDate.day],
+            dd: addZero((0, NumberConverter_1.numberFormat)(defaultDate.date)),
+            d: (0, NumberConverter_1.numberFormat)(defaultDate.date),
+            mmmm: dateThConstants.fulls[defaultDate.month],
+            mmm: dateThConstants.shorts[defaultDate.month],
+            mm: addZero((0, NumberConverter_1.numberFormat)(defaultDate.month + 1)),
+            m: (0, NumberConverter_1.numberFormat)(defaultDate.month + 1),
+            yyyy: (0, NumberConverter_1.numberFormat)(defaultDate.year),
+            yy: addZero((0, NumberConverter_1.numberFormat)(defaultDate.year % 100)),
+            HH: addZero((0, NumberConverter_1.numberFormat)(defaultDate.hour)),
+            H: (0, NumberConverter_1.numberFormat)(defaultDate.hour),
+            MM: addZero((0, NumberConverter_1.numberFormat)(defaultDate.minute)),
+            M: (0, NumberConverter_1.numberFormat)(defaultDate.minute),
+            ss: addZero((0, NumberConverter_1.numberFormat)(defaultDate.second)),
+            s: (0, NumberConverter_1.numberFormat)(defaultDate.second),
         };
-        return format.replace(/dd|mm|yy|h|m|s/g, (match) => formatDate[match] || "");
+        return format.replace(/dddd|ddd|dd|d|mmmm|mmm|mm|m|yyyy|yy|HH|H|MM|M|ss|s/g, (match) => formatDate[match] || "");
     }
     catch (error) {
         console.error(error);

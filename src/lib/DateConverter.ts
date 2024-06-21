@@ -54,7 +54,7 @@ const dateFormat = (
   era: string = "be" || "ad"
 ): string => {
   try {
-    if (!date || !format || !era) {
+    if (!date || !format) {
       return "";
     }
 
@@ -71,6 +71,10 @@ const dateFormat = (
     };
 
     if (era === "be") {
+      defaultDate.year = defaultDate.year + 543;
+    } else if (era === "ad") {
+      defaultDate.year = newDate.getFullYear();
+    } else {
       defaultDate.year = defaultDate.year + 543;
     }
 
