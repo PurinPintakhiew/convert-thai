@@ -27,6 +27,7 @@ dateFormat(new Date(), "dd/mm/yyy HH:MM:ss"); // ๒๑/๐๖/๒๕๖๗ ๑�
 dateFormat(new Date(), "dd mmm yyyy"); // ๒๑ มิ.ย. ๒๕๖๗
 dateFormat(new Date(), "dd mmmm yyyy"); // ๒๑ มิถุนายน ๒๕๖๗
 dateFormat(new Date(), "dddd dd mmmm yyyy"); // ศุกร์ ๒๑ มิถุนายน ๒๕๖๗
+dateFormat(new Date(), "dd/mm/yyyy", "ad"); // ๒๑/๐๖/๒๐๒๔
 
 // --- numberFormat
 numberFormat(123456); // ๑๒๓๔๕๖
@@ -53,6 +54,7 @@ dateFormat(new Date(), "dd/mm/yyy HH:MM:ss"); // ๒๑/๐๖/๒๕๖๗ ๑�
 dateFormat(new Date(), "dd mmm yyyy"); // ๒๑ มิ.ย. ๒๕๖๗
 dateFormat(new Date(), "dd mmmm yyyy"); // ๒๑ มิถุนายน ๒๕๖๗
 dateFormat(new Date(), "dddd dd mmmm yyyy"); // ศุกร์ ๒๑ มิถุนายน ๒๕๖๗
+dateFormat(new Date(), "dd/mm/yyyy", "ad"); // ๒๑/๐๖/๒๐๒๔
 
 // --- numberFormat
 numberFormat(123456); // ๑๒๓๔๕๖
