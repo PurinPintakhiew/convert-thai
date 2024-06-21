@@ -54,29 +54,29 @@ numberFormat(-1234, 2, ','); // -๑,๒๓๔.๐๐
 ```
 ## Description (คำอธิบาย)
 
- * `dateFormat(date, format, type, era)`
+ * **`dateFormat(date, format, type, era)`**
     * `date` (ค่าวันที่) - [จำเป็น]
-      * new Date()
-      * "2024-6-19"
+      * `new Date()`
+      * `"2024-6-19"`
     * `format` (รูปแบบวันที่) - [ไม่บังคับ] - (default - "dd/mm/yy")
-      *  "dd/mm/yy" ๑๙/๐๖/๒๕๖๗
-      *  "yy/mm/dd" ๒๕๖๗/๐๖/๑๙
-      *  "dd-mm-yy" ๑๙-๐๖-๒๕๖๗
-      *  "yy-mm-dd" ๒๕๖๗-๐๖-๑๙
-      *  "dd mm yy" ๑๙ ๐๖ ๒๕๖๗
-      *  "yy mm dd" ๒๕๖๗ ๐๖ ๑๙
-      *  "dd/mm/yy h:m:s" ๑๙/๐๖/๒๕๖๗ ๑๒:๐๐:๓๕
-      *  "yy/mm/dd h:m:s" ๒๕๖๗/๐๖/๑๙ ๑๒:๐๐:๓๕
-      *  "h:m:s" ๑๒:๐๐:๓๕
+      *  `"dd/mm/yy"` ๑๙/๐๖/๒๕๖๗
+      *  `"yy/mm/dd"` ๒๕๖๗/๐๖/๑๙
+      *  `"dd-mm-yy"` ๑๙-๐๖-๒๕๖๗
+      *  `"yy-mm-dd"` ๒๕๖๗-๐๖-๑๙
+      *  `"dd mm yy"` ๑๙ ๐๖ ๒๕๖๗
+      *  `"yy mm dd"` ๒๕๖๗ ๐๖ ๑๙
+      *  `"dd/mm/yy h:m:s"` ๑๙/๐๖/๒๕๖๗ ๑๒:๐๐:๓๕
+      *  `"yy/mm/dd h:m:s"` ๒๕๖๗/๐๖/๑๙ ๑๒:๐๐:๓๕
+      *  `"h:m:s"` ๑๒:๐๐:๓๕
     * `type` (ประเภท) - [ไม่บังคับ] - (default - "number")
-      * "number" (ตัวเลข)  ๑๙ ๐๖ ๒๕๖๗
-      * "short" (เดือนตัวย่อ) ๑๙ มิ.ย. ๒๕๖๗
-      * "full" (เดือนตัวเต็ม) ๑๙ มิถุนายน ๒๕๖๗
+      * `"number"` (ตัวเลข)  ๑๙ ๐๖ ๒๕๖๗
+      * `"short"` (เดือนตัวย่อ) ๑๙ มิ.ย. ๒๕๖๗
+      * `"full"` (เดือนตัวเต็ม) ๑๙ มิถุนายน ๒๕๖๗
     * `era` (ศักราช) - [ไม่บังคับ] - (default - "be")
-      * "be" (พุทธศักราช)
-      * "ad" (คริสต์ศักราช)
+      * `"be"` (พุทธศักราช)
+      * `"ad"` (คริสต์ศักราช)
     
-* `numberFormat(number, decimals, thousandsSeparator)`
+* **`numberFormat(number, decimals, thousandsSeparator)`**
    * `number` (ค่าตัวเลข) - [จำเป็น] - 1000, 1000.50, -1000 เป็นต้น
    * `decimals` (ทศนิยม) - [ไม่บังคับ] - 0, 1, 2, 3, ...n (จำนวนเต็มบวก) (default - "be")
    * `thousandsSeparator` (ตัวคั่นหลักพัน) - [ไม่บังคับ] - ","
