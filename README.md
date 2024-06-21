@@ -1,8 +1,13 @@
 # convert-thai
 
 ## Install (ติดตั้ง)
+#### Using npm
 ```npm
 npm i convert-thai
+```
+#### Using Yarn
+```npm
+yarn add convert-thai
 ```
 ## Usage (วิธีการใช้งาน)
 
