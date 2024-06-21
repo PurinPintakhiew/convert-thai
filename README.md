@@ -13,19 +13,24 @@ yarn add convert-thai
 
 #### Typescript
 ```typescript
-import { dateFormat, numberFormat } from "convert-thai";
+import { dateFormat, numberFormat, convertThai } from "convert-thai";
+
+// --- convertThai
+convertThai.dateFormat(new Date()) // ๒๑/๐๖/๒๕๖๗
+convertThai.numberFormat(1000) // ๑๐๐๐
 
 // --- dateFormat
-dateFormat(new Date()); // ๑๙/๐๖/๒๕๖๗
-dateFormat(new Date(), "dd/mm/yy"); // ๑๙/๐๖/๒๕๖๗
-dateFormat(new Date(), "dd/mm/yy h:m:s"); // ๑๙/๐๖/๒๕๖๗ ๑๒:๐๐:๓๕
-dateFormat(new Date(), "dd mm yy"); // ๑๙ ๐๖ ๒๕๖๗
-dateFormat(new Date(), "dd mm yy", "short"); // ๑๙ มิ.ย. ๒๕๖๗
-dateFormat(new Date(), "dd mm yy", "full"); // ๑๙ มิถุนายน ๒๕๖๗
+dateFormat(new Date()); // ๒๑/๐๖/๒๕๖๗
+dateFormat("2024-6-21"); // ๒๑/๐๖/๒๕๖๗
+dateFormat(new Date(), "dd/mm/yyyy"); // ๒๑/๐๖/๒๕๖๗
+dateFormat(new Date(), "dd/mm/yyy HH:MM:ss"); // ๒๑/๐๖/๒๕๖๗ ๑๒:๐๐:๓๕
+dateFormat(new Date(), "dd mmm yyyy"); // ๒๑ มิ.ย. ๒๕๖๗
+dateFormat(new Date(), "dd mmmm yyyy"); // ๒๑ มิถุนายน ๒๕๖๗
+dateFormat(new Date(), "dddd dd mmmm yyyy"); // ศุกร์ ๒๑ มิถุนายน ๒๕๖๗
 
 // --- numberFormat
-numberFormat(123456789); // ๑๒๓๔๕๖๗๘๙
-numberFormat(1234.56789, 2); // ๑๒๓๔.๕๖
+numberFormat(123456); // ๑๒๓๔๕๖
+numberFormat(123.456, 2); // ๑๒๓.๔๕
 numberFormat(123456789, 0, ','); // ๑๒๓,๔๕๖,๗๘๙
 numberFormat(-1234); // -๑๒๓๔
 numberFormat(-1234, 2); // -๑๒๓๔.๐๐
@@ -34,19 +39,24 @@ numberFormat(-1234, 2, ','); // -๑,๒๓๔.๐๐
 
 #### Javascript
 ```javascript
-const { dateFormat, numberFormat } = require('convert-thai');
+const { dateFormat, numberFormat, convertThai } = require('convert-thai');
+
+// --- convertThai
+convertThai.dateFormat(new Date()) // ๒๑/๐๖/๒๕๖๗
+convertThai.numberFormat(1000) // ๑๐๐๐
 
 // --- dateFormat
-dateFormat(new Date()); // ๑๙/๐๖/๒๕๖๗
-dateFormat(new Date(), "dd/mm/yy"); // ๑๙/๐๖/๒๕๖๗
-dateFormat(new Date(), "dd/mm/yy h:m:s"); // ๑๙/๐๖/๒๕๖๗ ๑๒:๐๐:๓๕
-dateFormat(new Date(), "dd mm yy"); // ๑๙ ๐๖ ๒๕๖๗
-dateFormat(new Date(), "dd mm yy", "short"); // ๑๙ มิ.ย. ๒๕๖๗
-dateFormat(new Date(), "dd mm yy", "full"); // ๑๙ มิถุนายน ๒๕๖๗
+dateFormat(new Date()); // ๒๑/๐๖/๒๕๖๗
+dateFormat("2024-6-21"); // ๒๑/๐๖/๒๕๖๗
+dateFormat(new Date(), "dd/mm/yyyy"); // ๒๑/๐๖/๒๕๖๗
+dateFormat(new Date(), "dd/mm/yyy HH:MM:ss"); // ๒๑/๐๖/๒๕๖๗ ๑๒:๐๐:๓๕
+dateFormat(new Date(), "dd mmm yyyy"); // ๒๑ มิ.ย. ๒๕๖๗
+dateFormat(new Date(), "dd mmmm yyyy"); // ๒๑ มิถุนายน ๒๕๖๗
+dateFormat(new Date(), "dddd dd mmmm yyyy"); // ศุกร์ ๒๑ มิถุนายน ๒๕๖๗
 
 // --- numberFormat
-numberFormat(123456789); // ๑๒๓๔๕๖๗๘๙
-numberFormat(1234.56789, 2); // ๑๒๓๔.๕๖
+numberFormat(123456); // ๑๒๓๔๕๖
+numberFormat(123.456, 2); // ๑๒๓.๔๕
 numberFormat(123456789, 0, ','); // ๑๒๓,๔๕๖,๗๘๙
 numberFormat(-1234); // -๑๒๓๔
 numberFormat(-1234, 2); // -๑๒๓๔.๐๐
@@ -57,7 +67,7 @@ numberFormat(-1234, 2, ','); // -๑,๒๓๔.๐๐
  * **`dateFormat(date, format, type, era)`**
     * `date` (ค่าวันที่) - [จำเป็น]
       * `new Date()`
-      * `"2024-6-19"`
+      * `"2024-6-21"`
     * `format` (รูปแบบวันที่) - [ไม่บังคับ] - (default - "dd/mm/yyyy")
       * **Meaning of variables** (ความหมายของตัวแปร)
         
