@@ -48,10 +48,12 @@ const dateThConstants: DateThConstants = {
   shortDays: ["อา", "จ", "อ", "พ", "พฤ", "ศ", "ส"],
 };
 
+type era = "be" | "ad";
+
 const dateFormat = (
   date: any,
   format: string = "dd/mm/yyyy",
-  era: string = "be" || "ad"
+  era: era = "be"
 ): string => {
   try {
     if (!date || !format) {
