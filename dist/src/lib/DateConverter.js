@@ -42,7 +42,7 @@ const dateThConstants = {
     ],
     shortDays: ["อา", "จ", "อ", "พ", "พฤ", "ศ", "ส"],
 };
-const dateFormat = (date, format = "dd/mm/yyyy", era = "be" || "ad") => {
+const dateFormat = (date, format = "dd/mm/yyyy", era = "be") => {
     try {
         if (!date || !format) {
             return "";
