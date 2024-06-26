@@ -13,11 +13,12 @@ yarn add convert-thai
 
 #### Typescript
 ```typescript
-import { dateFormat, numberFormat, convertThai } from "convert-thai";
+import { dateFormat, numberFormat, bathText, convertThai } from "convert-thai";
 
 // --- convertThai
 convertThai.dateFormat(new Date()) // ๒๑/๐๖/๒๕๖๗
 convertThai.numberFormat(1000) // ๑๐๐๐
+convertThai.bathText(1000) // หนึ่งพันบาทถ้วน
 
 // --- dateFormat
 dateFormat(new Date()); // ๒๑/๐๖/๒๕๖๗
@@ -36,15 +37,21 @@ numberFormat(123456789, 0, ','); // ๑๒๓,๔๕๖,๗๘๙
 numberFormat(-1234); // -๑๒๓๔
 numberFormat(-1234, 2); // -๑๒๓๔.๐๐
 numberFormat(-1234, 2, ','); // -๑,๒๓๔.๐๐
+
+// --- bathText
+bathText(1000); // หนึ่งพันบาทถ้วน
+bathText(1000000); // หนึ่งล้านบาทถ้วน
+bathText(3750.85) // สามพันเจ็ดร้อยห้าสิบบาทแปดสิบห้าสตางค์
 ```
 
 #### Javascript
 ```javascript
-const { dateFormat, numberFormat, convertThai } = require('convert-thai');
+const { dateFormat, numberFormat, bathText, convertThai } = require('convert-thai');
 
 // --- convertThai
 convertThai.dateFormat(new Date()) // ๒๑/๐๖/๒๕๖๗
 convertThai.numberFormat(1000) // ๑๐๐๐
+convertThai.bathText(1000) // หนึ่งพันบาทถ้วน
 
 // --- dateFormat
 dateFormat(new Date()); // ๒๑/๐๖/๒๕๖๗
@@ -63,6 +70,11 @@ numberFormat(123456789, 0, ','); // ๑๒๓,๔๕๖,๗๘๙
 numberFormat(-1234); // -๑๒๓๔
 numberFormat(-1234, 2); // -๑๒๓๔.๐๐
 numberFormat(-1234, 2, ','); // -๑,๒๓๔.๐๐
+
+// --- bathText
+bathText(1000); // หนึ่งพันบาทถ้วน
+bathText(1000000); // หนึ่งล้านบาทถ้วน
+bathText(3750.85) // สามพันเจ็ดร้อยห้าสิบบาทแปดสิบห้าสตางค์
 ```
 ## Description (คำอธิบาย)
 
