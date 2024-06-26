@@ -22,10 +22,14 @@
     "thai-date",
     "number",
     "thai-number",
+    "bath",
+    "bathText",
+    "thai-bath",
     "ไทย",
     "ตัวเลข",
     "วันที่",
-    "เวลา"
+    "เวลา",
+    "บาท"
   ],
   "author": "Purin Pintakhiew",
   "license": "ISC",
