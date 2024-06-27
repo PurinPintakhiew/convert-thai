@@ -138,7 +138,7 @@ bathText(3750.85) // สามพันเจ็ดร้อยห้าสิ�
 
 * **`bathText(number)`**
    * `number` (ค่าตัวเลข) - [จำเป็น]
-     * 0 - 1000000000000 (support)
+     * 0 - 9999999999999 (support)
     
 ## Refer (อ้างอิง)
 [**Date/Time Formats**](https://www.ibm.com/docs/en/sgfmw/5.3.1?topic=format-datetime-formats)
