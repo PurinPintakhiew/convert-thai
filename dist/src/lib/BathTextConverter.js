@@ -65,6 +65,9 @@ const bathText = (number) => {
         else {
             bahtText += "ถ้วน";
         }
+        if (number < 0) {
+            return "ลบ" + bahtText;
+        }
         return bahtText;
     }
     catch (error) {
