@@ -9,6 +9,10 @@ npm i convert-thai
 ```npm
 yarn add convert-thai
 ```
+#### Using in HTML (สำหรับการใช้งานใน HTML)
+```
+<script src="https://cdn.jsdelivr.net/npm/convert-thai@1.1.5/dist/src/index.min.js"></script>
+```
 ## Usage (วิธีการใช้งาน)
 
 #### Typescript
