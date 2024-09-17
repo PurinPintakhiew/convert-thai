@@ -48,12 +48,16 @@ const dateThConstants: DateThConstants = {
   shortDays: ["อา", "จ", "อ", "พ", "พฤ", "ศ", "ส"],
 };
 
-type era = "be" | "ad";
+/*
+  พ.ศ. (BE), ค.ศ. (CE), ม.ศ. (MS), จ.ศ. (JE), ร.ศ. (RE) และ ฮ.ศ. (HE)
+*/
+
+type Era = "BE" | "CE" | "MS" | "JE" | "RE" | "HE";
 
 const dateFormat = (
   date: any,
   format: string = "dd/mm/yyyy",
-  era: era = "be"
+  era: Era = "BE"
 ): string => {
   try {
     if (!date || !format) {
@@ -72,12 +76,20 @@ const dateFormat = (
       second: newDate.getSeconds(),
     };
 
-    if (era === "be") {
-      defaultDate.year = defaultDate.year + 543;
-    } else if (era === "ad") {
+    if (era === "BE") {
+      defaultDate.year = newDate.getFullYear() + 543;
+    } else if (era === "CE") {
       defaultDate.year = newDate.getFullYear();
+    } else if (era === "MS") {
+      defaultDate.year = newDate.getFullYear() + 638;
+    } else if (era === "JE") {
+      defaultDate.year = newDate.getFullYear() - 543 + 1;
+    } else if (era === "RE") {
+      defaultDate.year = newDate.getFullYear() - 1781;
+    } else if (era === "HE") {
+      defaultDate.year = newDate.getFullYear() - 622;
     } else {
-      defaultDate.year = defaultDate.year + 543;
+      defaultDate.year = newDate.getFullYear() + 543;
     }
 
     const result: string = dateSort(defaultDate, format);
@@ -137,4 +149,4 @@ const addZero = (numberStr: string): string => {
   }
 };
 
-export { dateFormat };
+export { dateFormat, Era };
