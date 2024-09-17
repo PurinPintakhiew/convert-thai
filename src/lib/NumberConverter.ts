@@ -14,12 +14,12 @@ const numberThConstants: any = {
   "-": "-",
 };
 
-type thousandsSeparator = ",";
+type ThousandsSeparator = ",";
 
 const numberFormat = (
   number: number,
   decimals?: number,
-  thousandsSeparator?: thousandsSeparator
+  thousandsSeparator?: ThousandsSeparator
 ): string => {
   try {
     if (number === null || typeof number === "undefined" || isNaN(number)) {
@@ -68,4 +68,4 @@ const numberFormat = (
   }
 };
 
-export { numberFormat };
+export { numberFormat, ThousandsSeparator };
