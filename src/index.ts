@@ -1,8 +1,18 @@
-import { dateFormat } from "./lib/DateConverter";
-import { numberFormat } from "./lib/NumberConverter";
+import { dateFormat, Era } from "./lib/DateConverter";
+import { numberFormat, ThousandsSeparator } from "./lib/NumberConverter";
 import { bathText } from "./lib/BathTextConverter";
 
-const convertThai = {
+interface ConvertThai {
+  bathText: (number: number) => string;
+  dateFormat: (date: any, format?: string, era?: Era) => string;
+  numberFormat: (
+    number: number,
+    decimals?: number,
+    thousandsSeparator?: ThousandsSeparator
+  ) => string;
+}
+
+const convertThai: ConvertThai = {
   dateFormat,
   numberFormat,
   bathText,
