@@ -1,3 +1,3 @@
-type era = "be" | "ad";
-declare const dateFormat: (date: any, format?: string, era?: era) => string;
-export { dateFormat };
+type Era = "BE" | "CE" | "MS" | "JE" | "RE" | "HE";
+declare const dateFormat: (date: any, format?: string, era?: Era) => string;
+export { dateFormat, Era };

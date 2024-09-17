@@ -1,3 +1,3 @@
-type thousandsSeparator = ",";
-declare const numberFormat: (number: number, decimals?: number, thousandsSeparator?: thousandsSeparator) => string;
-export { numberFormat };
+type ThousandsSeparator = ",";
+declare const numberFormat: (number: number, decimals?: number, thousandsSeparator?: ThousandsSeparator) => string;
+export { numberFormat, ThousandsSeparator };

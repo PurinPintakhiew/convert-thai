@@ -42,7 +42,7 @@ const dateThConstants = {
     ],
     shortDays: ["อา", "จ", "อ", "พ", "พฤ", "ศ", "ส"],
 };
-const dateFormat = (date, format = "dd/mm/yyyy", era = "be") => {
+const dateFormat = (date, format = "dd/mm/yyyy", era = "BE") => {
     try {
         if (!date || !format) {
             return "";
@@ -57,14 +57,26 @@ const dateFormat = (date, format = "dd/mm/yyyy", era = "be") => {
             minute: newDate.getMinutes(),
             second: newDate.getSeconds(),
         };
-        if (era === "be") {
-            defaultDate.year = defaultDate.year + 543;
+        if (era === "BE") {
+            defaultDate.year = newDate.getFullYear() + 543;
         }
-        else if (era === "ad") {
+        else if (era === "CE") {
             defaultDate.year = newDate.getFullYear();
         }
+        else if (era === "MS") {
+            defaultDate.year = newDate.getFullYear() + 638;
+        }
+        else if (era === "JE") {
+            defaultDate.year = newDate.getFullYear() - 543 + 1;
+        }
+        else if (era === "RE") {
+            defaultDate.year = newDate.getFullYear() - 1781;
+        }
+        else if (era === "HE") {
+            defaultDate.year = newDate.getFullYear() - 622;
+        }
         else {
-            defaultDate.year = defaultDate.year + 543;
+            defaultDate.year = newDate.getFullYear() + 543;
         }
         const result = dateSort(defaultDate, format);
         return result;
