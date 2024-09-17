@@ -26,19 +26,26 @@ yarn add convert-thai
 import { dateFormat, numberFormat, bathText, convertThai } from "convert-thai";
 
 // --- convertThai
-convertThai.dateFormat(new Date()) // ๒๑/๐๖/๒๕๖๗
+convertThai.dateFormat(new Date()) // ๑๘/๐๙/๒๕๖๗
 convertThai.numberFormat(1000) // ๑๐๐๐
 convertThai.bathText(1000) // หนึ่งพันบาทถ้วน
 
 // --- dateFormat
-dateFormat(new Date()); // ๒๑/๐๖/๒๕๖๗
-dateFormat("2024-6-21"); // ๒๑/๐๖/๒๕๖๗
-dateFormat(new Date(), "dd/mm/yyyy"); // ๒๑/๐๖/๒๕๖๗
-dateFormat(new Date(), "dd/mm/yyy HH:MM:ss"); // ๒๑/๐๖/๒๕๖๗ ๑๒:๐๐:๓๕
-dateFormat(new Date(), "dd mmm yyyy"); // ๒๑ มิ.ย. ๒๕๖๗
-dateFormat(new Date(), "dd mmmm yyyy"); // ๒๑ มิถุนายน ๒๕๖๗
-dateFormat(new Date(), "dddd dd mmmm yyyy"); // ศุกร์ ๒๑ มิถุนายน ๒๕๖๗
-dateFormat(new Date(), "dd/mm/yyyy", "ad"); // ๒๑/๐๖/๒๐๒๔
+dateFormat(new Date()); // ๑๘/๐๙/๒๕๖๗
+dateFormat("2024-9-18"); // ๑๘/๐๙/๒๕๖๗
+dateFormat(new Date(), "dd/mm/yyyy"); // ๑๘/๐๙/๒๕๖๗
+dateFormat(new Date(), "dd/mm/yyyy HH:MM:ss"); // ๑๘/๐๙/๒๕๖๗ ๐๑:๐๗:๒๙
+dateFormat(new Date(), "dd mmm yyyy"); // ๑๘ ก.ย. ๒๕๖๗
+dateFormat(new Date(), "dd mmmm yyyy"); // ๑๘ กันยายน ๒๕๖๗
+dateFormat(new Date(), "dddd dd mmmm yyyy"); // พุธ ๑๘ กันยายน ๒๕๖๗
+dateFormat(new Date(), "yyyy-mm-dd"); // ๒๕๖๗-๐๙-๑๘
+
+dateFormat(new Date(), "dd/mm/yyyy", "BE"); // พ.ศ. ๑๘/๐๙/๒๕๖๗
+dateFormat(new Date(), "dd/mm/yyyy", "CE"); // ค.ศ. ๑๘/๐๙/๒๐๒๔
+dateFormat(new Date(), "dd/mm/yyyy", "HE"); // ม.ศ. ๑๘/๐๙/๑๔๐๒
+dateFormat(new Date(), "dd/mm/yyyy", "JE"); // จ.ศ. ๑๘/๐๙/๑๔๘๒
+dateFormat(new Date(), "dd/mm/yyyy", "MS"); // ร.ศ. ๑๘/๐๙/๒๖๖๒
+dateFormat(new Date(), "dd/mm/yyyy", "RE"); // ฮ.ศ. ๑๘/๐๙/๒๔๓
 
 // --- numberFormat
 numberFormat(123456); // ๑๒๓๔๕๖
@@ -61,19 +68,26 @@ bathText(-3750.85) // ลบสามพันเจ็ดร้อยห้า�
 const { dateFormat, numberFormat, bathText, convertThai } = require('convert-thai');
 
 // --- convertThai
-convertThai.dateFormat(new Date()) // ๒๑/๐๖/๒๕๖๗
+convertThai.dateFormat(new Date()) // ๑๘/๐๙/๒๕๖๗
 convertThai.numberFormat(1000) // ๑๐๐๐
 convertThai.bathText(1000) // หนึ่งพันบาทถ้วน
 
 // --- dateFormat
-dateFormat(new Date()); // ๒๑/๐๖/๒๕๖๗
-dateFormat("2024-6-21"); // ๒๑/๐๖/๒๕๖๗
-dateFormat(new Date(), "dd/mm/yyyy"); // ๒๑/๐๖/๒๕๖๗
-dateFormat(new Date(), "dd/mm/yyy HH:MM:ss"); // ๒๑/๐๖/๒๕๖๗ ๑๒:๐๐:๓๕
-dateFormat(new Date(), "dd mmm yyyy"); // ๒๑ มิ.ย. ๒๕๖๗
-dateFormat(new Date(), "dd mmmm yyyy"); // ๒๑ มิถุนายน ๒๕๖๗
-dateFormat(new Date(), "dddd dd mmmm yyyy"); // ศุกร์ ๒๑ มิถุนายน ๒๕๖๗
-dateFormat(new Date(), "dd/mm/yyyy", "ad"); // ๒๑/๐๖/๒๐๒๔
+dateFormat(new Date()); // ๑๘/๐๙/๒๕๖๗
+dateFormat("2024-9-18"); // ๑๘/๐๙/๒๕๖๗
+dateFormat(new Date(), "dd/mm/yyyy"); // ๑๘/๐๙/๒๕๖๗
+dateFormat(new Date(), "dd/mm/yyyy HH:MM:ss"); // ๑๘/๐๙/๒๕๖๗ ๐๑:๐๗:๒๙
+dateFormat(new Date(), "dd mmm yyyy"); // ๑๘ ก.ย. ๒๕๖๗
+dateFormat(new Date(), "dd mmmm yyyy"); // ๑๘ กันยายน ๒๕๖๗
+dateFormat(new Date(), "dddd dd mmmm yyyy"); // พุธ ๑๘ กันยายน ๒๕๖๗
+dateFormat(new Date(), "yyyy-mm-dd"); // ๒๕๖๗-๐๙-๑๘
+
+dateFormat(new Date(), "dd/mm/yyyy", "BE"); // พ.ศ. ๑๘/๐๙/๒๕๖๗
+dateFormat(new Date(), "dd/mm/yyyy", "CE"); // ค.ศ. ๑๘/๐๙/๒๐๒๔
+dateFormat(new Date(), "dd/mm/yyyy", "HE"); // ม.ศ. ๑๘/๐๙/๑๔๐๒
+dateFormat(new Date(), "dd/mm/yyyy", "JE"); // จ.ศ. ๑๘/๐๙/๑๔๘๒
+dateFormat(new Date(), "dd/mm/yyyy", "MS"); // ร.ศ. ๑๘/๐๙/๒๖๖๒
+dateFormat(new Date(), "dd/mm/yyyy", "RE"); // ฮ.ศ. ๑๘/๐๙/๒๔๓
 
 // --- numberFormat
 numberFormat(123456); // ๑๒๓๔๕๖
@@ -135,12 +149,16 @@ bathText(-3750.85) // ลบสามพันเจ็ดร้อยห้า�
       | `dd/mm/yyyy HH:MM:ss` | ๒๑/๐๖/๒๕๖๗ ๐๗:๓๐:๒๕ |
       | `dddd dd mmmm yyyy HH:MM:ss` | ศุกร์ ๒๑ มิถุนายน ๒๕๖๗ ๐๗:๓๐:๒๕ |
 
-    * `era` (ศักราช) - [ไม่บังคับ] - (default - "be")
+    * `era` (ศักราช) - [ไม่บังคับ] - (default - "BE")
       
       | **Variable** (ตัวแปร) | **Description** (คำอธิบาย) | **Example** (ตัวอย่าง) |
       | --- | --- | --- |
-      | `be` | พุทธศักราช | ๒๕๖๗ (default) |
-      | `ad` | คริสต์ศักราช | ๒๐๒๔ |
+      | `BE` | พ.ศ. (พุทธศักราช) | ๒๕๖๗ (default) |
+      | `CE` | ค.ศ. (คริสต์ศักราช) | ๒๐๒๔ |
+      | `MS` | ม.ศ. (มหาศักราช) | ๑๔๐๒ |
+      | `JE` | จ.ศ. (จุลศักราช) | ๑๔๘๒ |
+      | `RE` | ร.ศ. (รัตนโกสินทร์ศักราช) | ๒๖๖๒ |
+      | `HE` | ฮ.ศ. (ฮิจเราะห์ศักราช) | ๒๔๓ |
     
 * **`numberFormat(number, decimals, thousandsSeparator)`**
    * `number` (ค่าตัวเลข) - [จำเป็น]
