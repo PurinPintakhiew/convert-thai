@@ -1,9 +1,11 @@
 # convert-thai
 This package is used for converting date and number data into Thai format. (แพ็คเกจนี้ใช้สำหรับแปลงข้อมูลวันที่และตัวเลขเป็นรูปแบบภาษาไทย)
 
-[![npm](https://img.shields.io/npm/v/convert-thai)](https://www.npmjs.com/package/convert-thai)
-[![npm](https://img.shields.io/npm/dm/convert-thai)](https://www.npmjs.com/package/convert-thai)
-[![npm](https://img.shields.io/npm/l/convert-thai)](https://www.npmjs.com/package/convert-thai)
+[![npm license](https://img.shields.io/npm/l/convert-thai)](https://www.npmjs.com/package/convert-thai)
+[![npm version](https://img.shields.io/npm/v/convert-thai)](https://www.npmjs.com/package/convert-thai)
+[![npm download](https://img.shields.io/npm/dt/convert-thai)](https://www.npmjs.com/package/convert-thai)
+[![npm download per month](https://img.shields.io/npm/dm/convert-thai)](https://www.npmjs.com/package/convert-thai)
+[![npm size](https://img.shields.io/npm/unpacked-size/convert-thai)](https://www.npmjs.com/package/convert-thai)
 [![npm bundle size](https://img.shields.io/bundlephobia/min/convert-thai)](https://www.npmjs.com/package/convert-thai)
 
 ## Install (ติดตั้ง)
