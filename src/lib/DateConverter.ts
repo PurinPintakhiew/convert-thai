@@ -1,71 +1,200 @@
 import { numberFormat } from "./NumberConverter";
 
-interface DateThConstants {
-  fulls: string[];
-  shorts: string[];
-  fullDays: string[];
-  shortDays: string[];
+// --- interface
+interface DateConstants {
+  months: {
+    full: string[];
+    short: string[];
+  };
+  days: {
+    full: string[];
+    short: string[];
+  };
 }
 
-const dateThConstants: DateThConstants = {
-  fulls: [
-    "มกราคม",
-    "กุมภาพันธ์",
-    "มีนาคม",
-    "เมษายน",
-    "พฤษภาคม",
-    "มิถุนายน",
-    "กรกฎาคม",
-    "สิงหาคม",
-    "กันยายน",
-    "ตุลาคม",
-    "พฤศจิกายน",
-    "ธันวาคม",
-  ],
-  shorts: [
-    "ม.ค.",
-    "ก.พ.",
-    "มี.ค.",
-    "เม.ย.",
-    "พ.ค.",
-    "มิ.ย.",
-    "ก.ค.",
-    "ส.ค.",
-    "ก.ย.",
-    "ต.ค.",
-    "พ.ย.",
-    "ธ.ค.",
-  ],
-  fullDays: [
-    "อาทิตย์",
-    "จันทร์",
-    "อังคาร",
-    "พุธ",
-    "พฤหัสบดี",
-    "ศุกร์",
-    "เสาร์",
-  ],
-  shortDays: ["อา", "จ", "อ", "พ", "พฤ", "ศ", "ส"],
+type Era = "BE" | "CE" | "MS" | "JE" | "RE" | "HE"; // พ.ศ. (BE), ค.ศ. (CE), ม.ศ. (MS), จ.ศ. (JE), ร.ศ. (RE) และ ฮ.ศ. (HE)
+type Locale = "th" | "us";
+
+// --- TH
+const dateThConstants: DateConstants = {
+  months: {
+    full: [
+      "มกราคม",
+      "กุมภาพันธ์",
+      "มีนาคม",
+      "เมษายน",
+      "พฤษภาคม",
+      "มิถุนายน",
+      "กรกฎาคม",
+      "สิงหาคม",
+      "กันยายน",
+      "ตุลาคม",
+      "พฤศจิกายน",
+      "ธันวาคม",
+    ],
+    short: [
+      "ม.ค.",
+      "ก.พ.",
+      "มี.ค.",
+      "เม.ย.",
+      "พ.ค.",
+      "มิ.ย.",
+      "ก.ค.",
+      "ส.ค.",
+      "ก.ย.",
+      "ต.ค.",
+      "พ.ย.",
+      "ธ.ค.",
+    ],
+  },
+  days: {
+    full: ["อาทิตย์", "จันทร์", "อังคาร", "พุธ", "พฤหัสบดี", "ศุกร์", "เสาร์"],
+    short: ["อา", "จ", "อ", "พ", "พฤ", "ศ", "ส"],
+  },
 };
 
-/*
-  พ.ศ. (BE), ค.ศ. (CE), ม.ศ. (MS), จ.ศ. (JE), ร.ศ. (RE) และ ฮ.ศ. (HE)
-*/
+// --- US
+const dateConstants: DateConstants = {
+  months: {
+    full: [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ],
+    short: [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ],
+  },
+  days: {
+    full: [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ],
+    short: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+  },
+};
 
-type Era = "BE" | "CE" | "MS" | "JE" | "RE" | "HE";
-
-const dateFormat = (
-  date: any,
-  format: string = "dd/mm/yyyy",
-  era: Era = "BE"
+// --- Sub function
+const dateSort = (
+  defaultDate: any,
+  format: string,
+  locale: Locale = "th"
 ): string => {
   try {
-    if (!date || !format) {
+    const formatDate: any = {
+      dddd:
+        locale === "th"
+          ? dateThConstants.days.full[defaultDate.day]
+          : dateConstants.days.full[defaultDate.day],
+      ddd:
+        locale === "th"
+          ? dateThConstants.days.short[defaultDate.day]
+          : dateConstants.days.short[defaultDate.day],
+      dd:
+        locale === "th"
+          ? addZero(numberFormat(defaultDate.date), locale)
+          : addZero(defaultDate.date.toString(), locale),
+      d: defaultDate.date.toString(),
+      mmmm:
+        locale === "th"
+          ? dateThConstants.months.full[defaultDate.month]
+          : dateConstants.months.full[defaultDate.month],
+      mmm:
+        locale === "th"
+          ? dateThConstants.months.short[defaultDate.month]
+          : dateConstants.months.short[defaultDate.month],
+      mm:
+        locale === "th"
+          ? addZero(numberFormat(defaultDate.month + 1), locale)
+          : addZero((defaultDate.month + 1).toString(), locale),
+      m: (defaultDate.month + 1).toString(),
+      yyyy:
+        locale === "th"
+          ? numberFormat(defaultDate.year)
+          : defaultDate.year.toString(),
+      yy:
+        locale === "th"
+          ? addZero(numberFormat(defaultDate.year % 100), locale)
+          : addZero((defaultDate.year % 100).toString(), locale),
+      HH:
+        locale === "th"
+          ? addZero(numberFormat(defaultDate.hour), locale)
+          : addZero(defaultDate.hour.toString(), locale),
+      H: defaultDate.hour.toString(),
+      MM:
+        locale === "th"
+          ? addZero(numberFormat(defaultDate.minute), locale)
+          : addZero(defaultDate.minute.toString(), locale),
+      M: defaultDate.minute.toString(),
+      ss:
+        locale === "th"
+          ? addZero(numberFormat(defaultDate.second), locale)
+          : addZero(defaultDate.second.toString(), locale),
+      s: defaultDate.second.toString(),
+    };
+
+    return format.replace(
+      /dddd|ddd|dd|d|mmmm|mmm|mm|m|yyyy|yy|HH|H|MM|M|ss|s/g,
+      (match: any) => formatDate[match]
+    );
+  } catch (error) {
+    console.error(error);
+    return "";
+  }
+};
+
+const addZero = (numberStr: string, locale: Locale = "th"): string => {
+  try {
+    if (!numberStr) {
       return "";
     }
 
-    const newDate: any = new Date(date);
+    if (numberStr.length === 1) {
+      return locale === "th" ? `๐${numberStr}` : `0${numberStr}`;
+    }
+    return numberStr;
+  } catch (error) {
+    console.error(error);
+    return "";
+  }
+};
 
+// --- Main function
+const dateFormat = (
+  date: any,
+  format: string = "dd/mm/yyyy",
+  era: Era = "BE",
+  locale: Locale = "th"
+): string => {
+  try {
+    if (!date || !format) return "";
+
+    const newDate: any = new Date(date);
     const defaultDate: any = {
       day: newDate.getDay(),
       date: newDate.getDate(),
@@ -76,77 +205,31 @@ const dateFormat = (
       second: newDate.getSeconds(),
     };
 
-    if (era === "BE") {
-      defaultDate.year = newDate.getFullYear() + 543;
-    } else if (era === "CE") {
-      defaultDate.year = newDate.getFullYear();
-    } else if (era === "MS") {
-      defaultDate.year = newDate.getFullYear() + 638;
-    } else if (era === "JE") {
-      defaultDate.year = newDate.getFullYear() - 543 + 1;
-    } else if (era === "RE") {
-      defaultDate.year = newDate.getFullYear() - 1781;
-    } else if (era === "HE") {
-      defaultDate.year = newDate.getFullYear() - 622;
-    } else {
-      defaultDate.year = newDate.getFullYear() + 543;
+    switch (era) {
+      case "BE":
+        defaultDate.year += 543;
+        break;
+      case "MS":
+        defaultDate.year += 638;
+        break;
+      case "JE":
+        defaultDate.year = defaultDate.year - 543 + 1;
+        break;
+      case "RE":
+        defaultDate.year -= 1781;
+        break;
+      case "HE":
+        defaultDate.year -= 622;
+        break;
+      default:
+        break;
     }
 
-    const result: string = dateSort(defaultDate, format);
-
-    return result;
+    return dateSort(defaultDate, format, locale);
   } catch (error) {
     console.error(error);
     return "";
   }
 };
 
-const dateSort = (defaultDate: any, format: string): string => {
-  try {
-    const formatDate: any = {
-      dddd: dateThConstants.fullDays[defaultDate.day],
-      ddd: dateThConstants.shortDays[defaultDate.day],
-      dd: addZero(numberFormat(defaultDate.date)),
-      d: numberFormat(defaultDate.date),
-      mmmm: dateThConstants.fulls[defaultDate.month],
-      mmm: dateThConstants.shorts[defaultDate.month],
-      mm: addZero(numberFormat(defaultDate.month + 1)),
-      m: numberFormat(defaultDate.month + 1),
-      yyyy: numberFormat(defaultDate.year),
-      yy: addZero(numberFormat(defaultDate.year % 100)),
-      HH: addZero(numberFormat(defaultDate.hour)),
-      H: numberFormat(defaultDate.hour),
-      MM: addZero(numberFormat(defaultDate.minute)),
-      M: numberFormat(defaultDate.minute),
-      ss: addZero(numberFormat(defaultDate.second)),
-      s: numberFormat(defaultDate.second),
-    };
-
-    return format.replace(
-      /dddd|ddd|dd|d|mmmm|mmm|mm|m|yyyy|yy|HH|H|MM|M|ss|s/g,
-      (match: any) => formatDate[match] || ""
-    );
-  } catch (error) {
-    console.error(error);
-    return "";
-  }
-};
-
-const addZero = (numberStr: string): string => {
-  try {
-    if (!numberStr) {
-      return "";
-    }
-
-    if (numberStr?.length == 1) {
-      return `๐${numberStr}`;
-    }
-
-    return numberStr;
-  } catch (error) {
-    console.error(error);
-    return "";
-  }
-};
-
-export { dateFormat, Era };
+export { dateFormat, Era, Locale };
