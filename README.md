@@ -1,31 +1,31 @@
-# @saimcore/convert-thai
+# @siamcore/convert-thai
 This package is used for converting date and number data into Thai format. (แพ็คเกจนี้ใช้สำหรับแปลงข้อมูลวันที่และตัวเลขเป็นรูปแบบภาษาไทย)
 
-[![npm license](https://img.shields.io/npm/l/@saimcore/convert-thai)](https://www.npmjs.com/package/@saimcore/convert-thai)
-[![npm version](https://img.shields.io/npm/v/@saimcore/convert-thai)](https://www.npmjs.com/package/@saimcore/convert-thai)
-[![npm download](https://img.shields.io/npm/dt/@saimcore/convert-thai)](https://www.npmjs.com/package/@saimcore/convert-thai)
-[![npm download per month](https://img.shields.io/npm/dm/@saimcore/convert-thai)](https://www.npmjs.com/package/@saimcore/convert-thai)
-[![npm size](https://img.shields.io/npm/unpacked-size/@saimcore/convert-thai)](https://www.npmjs.com/package/@saimcore/convert-thai)
-[![npm bundle size](https://img.shields.io/bundlephobia/min/@saimcore/convert-thai)](https://www.npmjs.com/package/@saimcore/convert-thai)
+[![npm license](https://img.shields.io/npm/l/@siamcore/convert-thai)](https://www.npmjs.com/package/@siamcore/convert-thai)
+[![npm version](https://img.shields.io/npm/v/@siamcore/convert-thai)](https://www.npmjs.com/package/@siamcore/convert-thai)
+[![npm download](https://img.shields.io/npm/dt/@siamcore/convert-thai)](https://www.npmjs.com/package/@siamcore/convert-thai)
+[![npm download per month](https://img.shields.io/npm/dm/@siamcore/convert-thai)](https://www.npmjs.com/package/@siamcore/convert-thai)
+[![npm size](https://img.shields.io/npm/unpacked-size/@siamcore/convert-thai)](https://www.npmjs.com/package/@siamcore/convert-thai)
+[![npm bundle size](https://img.shields.io/bundlephobia/min/@siamcore/convert-thai)](https://www.npmjs.com/package/@siamcore/convert-thai)
 
 ## Install (ติดตั้ง)
 #### Using npm
 ```bash
-npm i @saimcore/convert-thai
+npm i @siamcore/convert-thai
 ```
 #### Using Yarn
 ```bash
-yarn add @saimcore/convert-thai
+yarn add @siamcore/convert-thai
 ```
 #### Using in HTML (สำหรับการใช้งานใน HTML)
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@saimcore/convert-thai@latest/dist/bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@siamcore/convert-thai@latest/dist/bundle.js"></script>
 ```
 ## Usage (วิธีการใช้งาน)
 
 #### Typescript
 ```typescript
-import { dateFormat, numberFormat, bathText, convertThai } from "@saimcore/convert-thai";
+import { dateFormat, numberFormat, bathText, convertThai } from "@siamcore/convert-thai";
 
 // --- convertThai
 convertThai.dateFormat(new Date()) // ๑๘/๐๙/๒๕๖๗
@@ -70,7 +70,7 @@ bathText(-3750.85) // ลบสามพันเจ็ดร้อยห้า�
 
 #### Javascript
 ```javascript
-const { dateFormat, numberFormat, bathText, convertThai } = require('@saimcore/convert-thai');
+const { dateFormat, numberFormat, bathText, convertThai } = require('@siamcore/convert-thai');
 
 // --- convertThai
 convertThai.dateFormat(new Date()) // ๑๘/๐๙/๒๕๖๗
@@ -123,7 +123,7 @@ bathText(-3750.85) // ลบสามพันเจ็ดร้อยห้า�
 </head>
 
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/@saimcore/convert-thai@latest/dist/bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@siamcore/convert-thai@latest/dist/bundle.js"></script>
     <script>
         console.log(convertThai.dateFormat(new Date())); // ๑๘/๐๙/๒๕๖๗
         console.log(convertThai.numberFormat(123456)); // ๑๒๓๔๕๖
